@@ -1,0 +1,34 @@
+<div class="postLists">
+  <div class="content">
+    <div class="inPost">
+      <div *ngFor="let p of post" (click) = "getPostOfPostLists(p)" class = "post">
+        <div class="data">
+          <input type="text" [(ngModel)]="p.name">
+        </div>
+        <span (click) = "updatePost(p)">UPDATE</span>
+        <span (click) = "deletePost(p)">DELETE</span>
+        <span (click) = "getLikesOfPost(p)">LIKE</span>
+      </div>
+      <div class="create">
+        <input type="text" class = "createInput" id = "createInput" placeholder="New Post Title... No more than 200" [(ngModel)]="title">
+        <button class="createBtn" (click) = "createPost()">CREATE</button>
+      </div>
+      </div>
+  </div>
+</div>
+<div class="inPosts">
+  <div class="inPosts__container">
+    <div *ngFor = "let p of posts" class = "posts">
+      <div class="postInfo">
+        <div><span> Title: </span> <input type="text" [(ngModel)]="p.title"></div>
+        <div><span> Body: </span> <input type="text" [(ngModel)]="p.body"></div>
+        <div><span> Created_at: </span> {{p.created_at}}</div>
+        <div><span> Created_by: </span> {{p.created_by}}</div>
+        <div><span> Like_count: </span> {{p.like_count}}</div>
+      </div>
+      <div class="bttns">
+        <span (click) = "updatePost(p)">UPDATE</span>
+        <span (click) = "deletePost(p)">DELETE</span>
+      </div>
+    </div>
+  </div>
